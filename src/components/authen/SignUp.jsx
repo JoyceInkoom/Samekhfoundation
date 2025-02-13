@@ -24,15 +24,15 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     setLoading(true);
     try {
       const response = await apiUserSignup(formData);
       toast.success("Signup successful! Redirecting to dashboard...");
-      
+
       // Save token from API response to localStorage
       localStorage.setItem("authToken", response.accessToken);
-  
+
       // Add a slight delay to show the toast before navigating
       setTimeout(() => {
         navigate("/dashboard");
@@ -62,7 +62,7 @@ const SignUp = () => {
   };
 
   const handleClose = () => {
-    navigate("/");  // Navigate to homepage when X is clicked
+    navigate("/"); // Navigate to homepage when X is clicked
   };
 
   // Check if the user is already authenticated via Auth0
@@ -73,7 +73,7 @@ const SignUp = () => {
         const token = await getAccessTokenSilently();
         // Save the token to localStorage
         localStorage.setItem("authToken", token);
-        
+
         toast.success("Google signup successful! Redirecting to dashboard...");
         navigate("/dashboard");
       } catch (error) {
@@ -137,21 +137,14 @@ const SignUp = () => {
             onChange={handleInputChange}
             required
           />
-          <button
-            type="submit"
-            className="form-button"
-            disabled={loading}
-          >
+          <button type="submit" className="form-button" disabled={loading}>
             {loading ? "Signing Up..." : "Sign Up"}
           </button>
         </form>
 
         <p className="or-text">OR</p>
 
-        <button
-          className="google-button"
-          onClick={handleGoogleSignUp}
-        >
+        <button className="google-button" onClick={handleGoogleSignUp}>
           <FaGoogle size={20} className="google-icon" />
           Sign Up with Google
         </button>

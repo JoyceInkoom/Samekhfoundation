@@ -2,7 +2,7 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import SignUp from "./components/authen/Signup";
+
 import SignIn from "./components/authen/SignIn";
 import LandingPage from "./landing";
 import ResetPassword from "./components/ResetPassword";
@@ -17,6 +17,7 @@ import AllEventsPage from "./pages/dashboard/AllEvents";
 import GetOneEvent from "./pages/dashboard/GetOneEvent";
 import ProfilePage from "./pages/dashboard/ProfilePage";
 import DonateButton from "./landing/DonateButton";
+import SignUp from "./components/authen/SignUp";
 
 function App() {
   const router = createBrowserRouter([
