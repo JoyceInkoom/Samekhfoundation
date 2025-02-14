@@ -18,6 +18,10 @@ import GetOneEvent from "./pages/dashboard/GetOneEvent";
 import ProfilePage from "./pages/dashboard/ProfilePage";
 import DonateButton from "./landing/DonateButton";
 import SignUp from "./components/authen/SignUp";
+import Volunteer from "./landing/Volunteer";
+import Contact from "./landing/Contact";
+import Projects from "./landing/Projects";
+import About from "./landing/About";
 
 function App() {
   const router = createBrowserRouter([
@@ -36,6 +40,10 @@ function App() {
     { path: "/events/:eventId", element: <GetOneEvent /> },
     { path: "/profile", element: <ProfilePage /> },
     { path: "/donate", element: <DonateButton /> },
+    { path: "/volunteer", element: <Volunteer /> },
+    { path: "/contact", element: <Contact /> },
+    { path: "/projects", element: <Projects /> },
+    { path: "/about", element: <About /> },
   ]);
 
   return (

@@ -1,8 +1,12 @@
-import React from "react";
+import React from "react"; 
 import { useInView } from "react-intersection-observer";
 import founderImage from "../assets/images/founder.jpg"; // Replace with your actual image path
+import useMediaQuery from '@mui/material/useMediaQuery'; // Import Material UI's useMediaQuery hook
 
 const MeetTheFounder = () => {
+  // Check if the screen size is mobile
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   // Use the useInView hook to detect when the section is in view
   const { ref: sectionRef, inView: sectionInView } = useInView({
     triggerOnce: true, // Trigger the animation only once
@@ -23,12 +27,45 @@ const MeetTheFounder = () => {
           maxWidth: "1200px",
           margin: "0 auto",
           display: "flex",
-          flexDirection: "row",
+          flexDirection: isMobile ? "column" : "row", // Switch to column on mobile
           alignItems: "center",
           gap: "40px",
           justifyContent: "center",
         }}
       >
+        {/* Founder Image */}
+        <div
+          style={{
+            flex: 1,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            transition: "opacity 0.5s ease, transform 0.5s ease",
+            opacity: sectionInView ? 1 : 0,
+            transform: sectionInView ? "translateX(0)" : "translateX(50px)",
+          }}
+        >
+          <img
+            src={founderImage} // Use the imported image here
+            alt="Founder"
+            style={{
+              width: "100%",
+              maxWidth: "400px",
+              borderRadius: "10px",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+              transition: "transform 0.3s ease, box-shadow 0.3s ease",
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.transform = "scale(1.05)";
+              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.2)";
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)";
+            }}
+          />
+        </div>
+
         {/* Founder Description */}
         <div
           style={{
@@ -87,39 +124,6 @@ const MeetTheFounder = () => {
             success we've achieved and the relationships we've built along the
             way.
           </p>
-        </div>
-
-        {/* Founder Image */}
-        <div
-          style={{
-            flex: 1,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            transition: "opacity 0.5s ease, transform 0.5s ease",
-            opacity: sectionInView ? 1 : 0,
-            transform: sectionInView ? "translateX(0)" : "translateX(50px)",
-          }}
-        >
-          <img
-            src={founderImage} // Use the imported image here
-            alt="Founder"
-            style={{
-              width: "100%",
-              maxWidth: "400px",
-              borderRadius: "10px",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = "scale(1.05)";
-              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.2)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.1)";
-            }}
-          />
         </div>
       </div>
     </section>

@@ -106,9 +106,12 @@ const Footer = () => {
       </div>
 
       {/* Copyright Section */}
-      <div className="footer-bottom">
-        <p>&copy; 2025 Samekh Foundation. All rights reserved.</p>
-      </div>
+      <div className="footer-bottom"> 
+    <p>
+        &copy; 2025 <a href="/signup" className="footer-link">Samekh Foundation</a>. All rights reserved.
+    </p>
+</div>
+
     </footer>
   );
 };

@@ -1,25 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useInView } from "react-intersection-observer";
+import Navbar2 from "../landing/Navbar2"; // Adjust the path if necessary
+import Footer from "../landing/Footer"; // Adjust the path if necessary
 
-const AboutPage = () => {
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Check screen width and update state
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    // Initial check
-    handleResize();
-
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup event listener
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+const About = () => {
   // Use the useInView hook for animations
   const { ref: headingRef, inView: headingInView } = useInView({
     triggerOnce: true,
@@ -44,6 +28,9 @@ const AboutPage = () => {
         textAlign: "center",
       }}
     >
+      {/* Navbar */}
+      <Navbar2 />
+
       {/* Heading Section */}
       <div
         ref={headingRef}
@@ -95,7 +82,7 @@ const AboutPage = () => {
         <div
           style={{
             display: "flex",
-            flexDirection: isMobile ? "column" : "row", // Responsive layout
+            flexDirection: "row",
             alignItems: "center",
             gap: "40px",
             maxWidth: "1200px",
@@ -110,7 +97,6 @@ const AboutPage = () => {
               opacity: imageInView ? 1 : 0,
               transform: imageInView ? "translateX(0)" : "translateX(-50px)",
               transition: "opacity 1s ease, transform 1s ease",
-              width: isMobile ? "100%" : "auto", // Full width on mobile
             }}
           >
             <img
@@ -128,7 +114,7 @@ const AboutPage = () => {
           <div
             style={{
               flex: 1,
-              textAlign: isMobile ? "center" : "left", // Center text on mobile
+              textAlign: "left",
               opacity: contentInView ? 1 : 0,
               transform: contentInView ? "translateX(0)" : "translateX(50px)",
               transition: "opacity 1s ease, transform 1s ease",
@@ -140,7 +126,7 @@ const AboutPage = () => {
                 fontWeight: "bold",
                 color: "#2c3e50",
                 marginBottom: "20px",
-                marginTop: isMobile ? "0" : "-20px", // Adjust margin for mobile
+                marginTop: "-20px"
               }}
             >
               Our Mission
@@ -180,8 +166,11 @@ const AboutPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
 
-export default AboutPage;
+export default About;

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getEvents } from '../services/landing';
+import Navbar2 from './Navbar2';  // Import Navbar
+import Footer from './Footer';  // Import Footer
 import 'react-multi-carousel/lib/styles.css';
 
-const Events = () => {
+const Projects = () => {
   const [events, setEvents] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
   const eventsPerPage = 3;
 
   // Fetch events on component mount
@@ -28,22 +29,6 @@ const Events = () => {
     fetchEvents();
   }, []);
 
-  // Check screen width and update state
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    // Initial check
-    handleResize();
-
-    // Add event listener for window resize
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup event listener
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   // Navigate to the previous set of events
   const handlePrevious = () => {
     setStartIndex((prev) => Math.max(0, prev - eventsPerPage));
@@ -60,16 +45,21 @@ const Events = () => {
   return (
     <div
       style={{
-        maxWidth: '1700px',
-        marginTop: '40px',
+        maxWidth: '1200px',
+        margin: '40px auto',
         padding: '20px',
         position: 'relative',
-        backgroundColor: '#fcecae',
+        backgroundImage: 'url(https://images.pexels.com/photos/7946562/pexels-photo-7946562.jpeg)', // Background image URL
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
         color: '#fff',
         minHeight: '100vh',
       }}
     >
-      <h1 style={{ textAlign: 'center', marginBottom: '40px', fontSize: '2.5rem', color: 'black' }}>
+      {/* Navbar */}
+      <Navbar2 /> 
+
+      <h1 style={{ textAlign: 'center', marginBottom: '40px', fontSize: '2.5rem', color: '#fff' }}>
         Browse Through Some of Our Projects
       </h1>
 
@@ -84,7 +74,7 @@ const Events = () => {
             fontSize: '2rem',
             cursor: 'pointer',
             marginRight: '20px',
-            color: startIndex === 0 ? '#ccc' : 'black',
+            color: startIndex === 0 ? '#fff' : 'black',
             transition: 'color 0.2s',
           }}
         >
@@ -107,8 +97,8 @@ const Events = () => {
               <div
                 key={event.id}
                 style={{
-                  width: isMobile ? '100%' : '300px', // Full width on mobile
-                  backgroundColor: 'rgba(255, 255, 255, 0.5)', // Glassy effect
+                  width: '300px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.2)', // Glassy effect
                   borderRadius: '10px',
                   boxShadow: '0 4px 10px rgba(0, 0, 0, 0.8)',
                   backdropFilter: 'blur(10px)', // Frosted glass effect
@@ -151,9 +141,9 @@ const Events = () => {
                     <p
                       style={{
                         fontSize: '1rem',
-                        color: 'white',
+                        color: 'black',
                         fontWeight: 'bold',
-                        backgroundColor: 'black',
+                        backgroundColor: '#fff',
                         padding: '5px 10px',
                         borderRadius: '50px',
                         display: 'inline-block',
@@ -190,7 +180,7 @@ const Events = () => {
             fontSize: '2rem',
             cursor: 'pointer',
             marginLeft: '20px',
-            color: startIndex + eventsPerPage >= events.length ? '#ccc' : 'black',
+            color: startIndex + eventsPerPage >= events.length ? '#ccc' : '#fff',
             transition: 'color 0.2s',
           }}
         >
@@ -202,9 +192,10 @@ const Events = () => {
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr 1fr', // Single column on mobile
+          gridTemplateColumns: '1fr 1fr 1fr',
           gap: '20px',
-          marginTop: '20px',
+          marginTop: '40px',
+        //   backgroundColor: 'white',
           padding: '20px 0',
         }}
       >
@@ -239,7 +230,8 @@ const Events = () => {
                       <div
                         key={idx}
                         style={{
-                          width: isMobile ? '100%' : '30%', // Full width on mobile
+                          width: '100%', // Default to 100% for smaller screens
+                          flex: '1 0 30%', // Flexbox behavior for larger screens
                           marginBottom: '20px',
                         }}
                       >
@@ -260,8 +252,11 @@ const Events = () => {
             </div>
           ))}
       </div>
+
+      {/* Footer */}
+      <Footer /> 
     </div>
   );
 };
 
-export default Events;
+export default Projects;

@@ -97,7 +97,7 @@ const SignUp = () => {
 
         <h1 className="signup-title">Sign Up</h1>
         <p className="signup-subtitle">
-          Sign up as Admin to manage your website effectively.
+          Sign up as Admin to manage website effectively.
         </p>
 
         <form className="form-fields" onSubmit={handleSubmit}>
@@ -142,12 +142,12 @@ const SignUp = () => {
           </button>
         </form>
 
-        <p className="or-text">OR</p>
+        {/* <p className="or-text">OR</p> */}
 
-        <button className="google-button" onClick={handleGoogleSignUp}>
+        {/* <button className="google-button" onClick={handleGoogleSignUp}>
           <FaGoogle size={20} className="google-icon" />
           Sign Up with Google
-        </button>
+        </button> */}
 
         <p className="signin-link">
           Already have an account? <a href="/signin">Sign In</a>

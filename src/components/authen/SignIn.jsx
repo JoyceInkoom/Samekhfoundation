@@ -137,13 +137,13 @@ const SignIn = () => {
           </button>
         </form>
 
-        <p className="or-text">OR</p>
+        {/* <p className="or-text">OR</p> */}
 
         {/* Google Sign-In Button */}
-        <button className="google-button">
+        {/* <button className="google-button">
           <FaGoogle className="google-icon" /> {/* Google icon */}
-          Sign In with Google
-        </button>
+          {/* Sign In with Google */}
+        {/* </button> */} 
 
         <p className="forgot-password-text">
           <a href="#" onClick={handleForgotPassword}>

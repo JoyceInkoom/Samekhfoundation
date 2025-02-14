@@ -12,11 +12,13 @@ import Testimonials from "./Testimonial";
 import SponsorsPartners from "./Sponsors";
 import AboutPage from "./AboutPage";
 import Events from "./Events";
-import DidYouKnow from "./Did YouKnow";
+
 import WhatCharityMeans from "./What";
 import CharitySection from "./Charity";
 import BecomeAPartner from "./Partner";
 import HowWeOperate from "./How";
+import DidYouKnow from "./DidYouKnow";
+import ImpactGallery from "./Impact";
 
 const LandingPage = () => {
   return (
@@ -32,6 +34,7 @@ const LandingPage = () => {
       <AboutSection />
       <HowWeOperate />
       <Events />
+      <ImpactGallery />
       <SuccessStories />
       <Testimonials />
       

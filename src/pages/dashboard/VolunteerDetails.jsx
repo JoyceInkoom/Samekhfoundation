@@ -5,6 +5,7 @@ import Sidebar from "../../layouts/Sidebar";
 import Navbar from "../../layouts/Navbar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+ // Make sure to link the CSS file
 
 const VolunteerDetails = () => {
   const { id } = useParams();
@@ -41,12 +42,9 @@ const VolunteerDetails = () => {
       }
     }
   };
-  
-  
 
   const handleUpdate = async () => {
     try {
-      // Include only allowed fields
       const updateData = {
         firstName: updatedVolunteer.firstName,
         lastName: updatedVolunteer.lastName,
@@ -63,9 +61,6 @@ const VolunteerDetails = () => {
       toast.error("Error updating volunteer!");
     }
   };
-  
-  
-  
 
   const handleBackClick = () => {
     navigate("/allvolunteers");
@@ -77,43 +72,37 @@ const VolunteerDetails = () => {
 
   return (
     <div className="main-container">
-    <Sidebar />
-    <Navbar />
-    <div className="details-container" style={{backgroundImage: "url('https://images.pexels.com/photos/2908684/pexels-photo-2908684.jpeg')", // Background image URL
-        backgroundSize: "cover",
-        backgroundPosition: "center",}}>
-      <div className="details-card">
-        <h2>
-          {volunteer.firstName} {volunteer.lastName}
-        </h2>
-        <p>Skills:{volunteer.skills}</p>
-        <div>
-          <p>Email: {volunteer.email}</p>
-          <p>Phone: {volunteer.phone}</p>
-          <p>Joined: {new Date(volunteer.createdAt).toLocaleDateString()}</p>
-        </div>
-        <div className="button-group">
-          <button
-            onClick={() => setShowModal(true)}
-            className="btn btn-warning"
-          >
-            Update Volunteer
-          </button>
-          <button onClick={handleDelete} className="btn btn-danger">
-            Delete Volunteer
-          </button>
+      <Sidebar />
+      <Navbar />
+      <div className="details-container" style={{
+        backgroundImage: "url('https://images.pexels.com/photos/2908684/pexels-photo-2908684.jpeg')", 
+        backgroundSize: "cover", 
+        backgroundPosition: "center", 
+      }}>
+        <div className="details-card">
+          <h2>{volunteer.firstName} {volunteer.lastName}</h2>
+          <p>Skills: {volunteer.skills}</p>
+          <div>
+            <p>Email: {volunteer.email}</p>
+            <p>Phone: {volunteer.phone}</p>
+            <p>Joined: {new Date(volunteer.createdAt).toLocaleDateString()}</p>
+          </div>
+          <div className="button-group">
+            <button onClick={() => setShowModal(true)} className="btn btn-warning">
+              Update Volunteer
+            </button>
+            <button onClick={handleDelete} className="btn btn-danger">
+              Delete Volunteer
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <a href="/allvolunteers" className="back-button">
-      Back to Volunteers
-    </a>
+      <a href="/allvolunteers" className="back-button">Back to Volunteers</a>
+
       {showModal && (
-        <div className="modal-container">
-          <div className="modal">
-            <button onClick={() => setShowModal(false)} className="modal-close">
-              ×
-            </button>
+        <div className="volunteer-modal-overlay">
+          <div className="volunteer-modal">
+            <button onClick={() => setShowModal(false)} className="volunteer-modal-close">×</button>
             <h2>Update Volunteer</h2>
             <input
               type="text"
@@ -151,6 +140,7 @@ const VolunteerDetails = () => {
           </div>
         </div>
       )}
+
       <ToastContainer />
     </div>
   );

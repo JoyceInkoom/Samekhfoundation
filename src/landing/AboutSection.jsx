@@ -83,7 +83,7 @@ const AboutSection = () => {
       </div>
 
       {/* Arrow between Image and Description */}
-      <div className="arrow"></div>
+      {/* <div className="arrow"></div> */}
 
       {/* About Description in a Box */}
       <div
