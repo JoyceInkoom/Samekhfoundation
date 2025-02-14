@@ -13,10 +13,10 @@ const ImpactGallery = () => {
     threshold: 0.5,
   });
 
-  const { ref: galleryRef, inView: galleryInView } = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
+//   const { ref: galleryRef, inView: galleryInView } = useInView({
+//     triggerOnce: true,
+//     threshold: 0.5,
+//   });
 
   // Sample image URLs (replace with your own images)
   const images = [
@@ -85,14 +85,14 @@ const ImpactGallery = () => {
 
       {/* Gallery Section */}
       <div
-        ref={galleryRef}
+        
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
           gap: "20px",
           padding: "20px",
-          opacity: galleryInView ? 1 : 0,
-          transform: galleryInView ? "translateY(0)" : "translateY(50px)",
+        //   opacity: galleryInView ? 1 : 0,
+        //   transform: galleryInView ? "translateY(0)" : "translateY(50px)",
           transition: "opacity 1s ease, transform 1s ease",
         }}
       >

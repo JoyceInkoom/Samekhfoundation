@@ -248,6 +248,7 @@ const Events = () => {
                           alt={`${event.title} image ${idx + 1}`}
                           style={{
                             width: '100%',
+                  
                             height: 'auto', // Ensure aspect ratio is maintained
                             objectFit: 'cover', // Preserve aspect ratio and fill the space
                           }}
