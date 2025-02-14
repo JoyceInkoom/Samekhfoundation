@@ -3,6 +3,7 @@ import "../App.css"; // Assuming you have the CSS styles in this file
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import logo from "../assets/images/logo.jpg"; // Import the logo image
 import { postContact } from "../services/contact"; // Import the postContact function
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -106,10 +107,14 @@ const Footer = () => {
       </div>
 
       {/* Copyright Section */}
-      <div className="footer-bottom"> 
-    <p>
-        &copy; 2025 <a href="/signup" className="footer-link">Samekh Foundation</a>. All rights reserved.
-    </p>
+      <div className="footer-bottom">
+  <p>
+    &copy; 2025{" "}
+    <Link to="/signup" className="footer-link">
+      Samekh Foundation
+    </Link>
+    . All rights reserved.
+  </p>
 </div>
 
     </footer>
