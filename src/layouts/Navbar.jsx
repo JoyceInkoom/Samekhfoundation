@@ -8,7 +8,7 @@ import {
 
 const Navbar = () => (
   <header className="admin-navbar">
-    <div style={{ fontSize: '24px', fontWeight: 'bold', color: 'black' }}>
+    <div className="admin-navbar-title">
       Samekh Foundation
     </div>
     <div className="admin-navbar-links">

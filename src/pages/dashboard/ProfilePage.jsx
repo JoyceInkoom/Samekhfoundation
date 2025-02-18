@@ -157,7 +157,9 @@ const ProfilePage = () => {
               maxWidth: "100%",
               maxHeight: "80vh", // Limit the height of the form container
               overflowY: "auto", // Make the form container scrollable
+              margin: "50px auto", // Add this
             }}
+            className="forms-container" // Add this
           >
             <h1 style={{ color: "white", textAlign: "center" }}>Update Profile</h1>
             <form onSubmit={handleUpdate}>
@@ -175,6 +177,7 @@ const ProfilePage = () => {
                   width: "95%",
                   marginBottom: "10px",
                 }}
+                className="forms-input" // Add this
               />
               <br />
               <label>Last Name:</label>

@@ -1241,31 +1241,14 @@ body {
   z-index: 50;
 }
 
-.admin-navbar-search {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Hide search bar on small screens */
-@media (max-width: 768px) {
-  .admin-navbar-search {
-    display: none;
-  }
-}
-
-.admin-navbar-icon {
+.admin-navbar-title {
+  font-size: 24px;
+  font-weight: bold;
   color: black;
+  display: block;
 }
 
-.admin-navbar-input {
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  outline: none;
-  width: 200px;
-}
-
+/* Admin Navbar Links */
 .admin-navbar-links {
   display: flex;
   gap: 16px;
@@ -1291,6 +1274,35 @@ body {
 .admin-navbar-link:hover span {
   color: #d1d1d1;
 }
+
+/* Media Queries for Smaller Screens */
+@media (max-width: 1024px) {
+  .admin-navbar {
+    justify-content: flex-start; /* Align navbar items to the left */
+    padding: 10px 5px; /* Adjust padding to prevent overflow */
+  }
+
+  .admin-navbar-title {
+    display: none;
+  }
+
+  .admin-navbar-links {
+    display: flex;
+    flex-direction: column;  /* Stack the links vertically */
+    align-items: flex-start;  /* Align the links to the left */
+    gap: 4px;  /* Adjust space between links */
+    margin: 0;  /* Remove any margin */
+    padding: 0;  /* Remove padding */
+  }
+
+  .admin-navbar-link {
+    width: 100%;  /* Ensure the link takes full width */
+    justify-content: flex-start;  /* Align text and icons to the left */
+    padding: 0;  /* Adjust padding to remove space */
+  }
+}
+
+
 
 /* Admin Sidebar Styles */
 
@@ -1365,6 +1377,10 @@ body {
   height: 100vh;
   width: 16rem;
   transition: width 0.3s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 /* Responsive Styles */
@@ -1382,110 +1398,53 @@ body {
   }
 }
 
-/* Dashboard Container */
-.dashboard-container {
-  display: flex;
-  height: 100vh;
-}
-
-.sidebar {
-  width: 16rem;
-  height: 100%;
+/* Toggle Button Styles */
+.toggle-button {
   position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  top: 16px;
+  left: 16rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1;
 }
 
-.main-content {
-  margin-left: 16rem;
-  padding: 2rem;
-  overflow-y: scroll;
+.toggle-button:hover {
+  background-color: #444;
 }
 
-.dashboard-heading {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 7rem;
-  margin-bottom: 2rem;
-}
-
-/* Stats Grid */
-.stats-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-.stat-card {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.stat-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #f0f0f0;
-}
-
-.stat-card h2 {
-  font-size: 1.125rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-.stat-card p {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-/* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
-  .dashboard-container {
-    flex-direction: column;
+  .toggle-button {
+    left: 4rem;
   }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .main-content {
-    margin-left: 0;
-    margin-top: 4rem;
-  }
-
-  .stats-container {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+@media (max-width: 1024px) {
+  .admin-sidebar-link.active {
+    width: 1rem; /* Increase the width of the active link */
+    background-color: white; /* Active state */
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .main-content {
-    margin-left: 0;
-    margin-top: 3rem;
-  }
-
-  .dashboard-heading {
-    font-size: 1.5rem;
-  }
-
-  .stats-container {
-    grid-template-columns: 1fr;
+    width: 4rem !important;
   }
 }
+
+@media (max-width: 1024px) {
+  .admin-navbar {
+    left: 4rem !important;
+    border-radius: 10px;
+    width: 90%;
+  }
+  .main-content {
+    left: 6rem !important;
+  }
+}
+
 
 /* Default styling */
 .volunteer-form-container {
@@ -1911,6 +1870,9 @@ body {
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .post-event-title {
@@ -1930,12 +1892,16 @@ body {
   background: rgba(255, 255, 255, 0.2);
   color: black;
   outline: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Special Styling for Textarea */
 .post-event-textarea {
   height: 80px;
   resize: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .post-event-label {
@@ -1972,16 +1938,91 @@ body {
   background: white;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  .post-event-main {
+    flex-direction: row;
+  }
+
   .post-event-sidebar {
-    width: 0;
-    display: none;
+    width: 4rem;
+  }
+
+  .post-event-form-container {
+    flex: 1;
+    padding: 20px;
   }
 
   .post-event-form {
     width: 100%;
     padding: 15px;
+  }
+
+  .post-event-navbar {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-event-input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .post-event-textarea {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .post-event-button {
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .post-event-form {
+    padding: 10px;
+  }
+}
+
+.post-event-main-content {
+  margin-left: 16rem !important;
+}
+
+.event-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.event-heading {
+  margin-top: 60px;
+}
+
+@media (max-width: 1024px) {
+  .post-event-main-content {
+    margin-left: 4rem !important;
+  }
+
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .event-heading {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-event-main-content {
+    margin-left: 4rem !important;
+  }
+
+  .event-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .event-heading {
+    margin-top: 80px;
   }
 }
 
@@ -2126,5 +2167,149 @@ button {
   }
   to {
     transform: translateY(0);
+  }
+}
+
+/* Make the form container responsive */
+@media only screen and (max-width: 1024px) {
+  .forms-container {
+    width: 90%;
+    margin: 20px auto;
+  }
+}
+
+/* Make the form inputs responsive */
+@media only screen and (max-width: 1024px) {
+  .forms-input {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* For screens with width up to 768px (tablets and below) */
+@media (max-width: 768px) {
+  .forms-container {
+    width: 70% !important; /* Make form container take up more space on small screens */
+    padding: 15px !important; /* Reduce padding for smaller screens */
+    margin-left: 70px !important; /* Add this */
+  }
+
+  .forms-input {
+    width: 100% !important; /* Ensure inputs fill the width of the form container */
+    padding: 8px !important; /* Adjust padding for smaller screens */
+    font-size: 14px !important; /* Make the text slightly smaller */
+  }
+
+  button {
+    width: 50% !important; /* Make buttons take up the full width */
+    padding: 12px !important; /* Increase button padding for easier tapping */
+    font-size: 14px !important; /* Reduce font size for smaller screens */
+  }
+  
+  /* Specific adjustments for labels and form elements */
+  label {
+    font-size: 14px !important; /* Reduce font size of labels on small screens */
+  }
+  
+  /* Adjust spacing between form fields */
+  .forms-container > form {
+    margin-bottom: 20px !important;
+  }
+}
+
+
+/* Base styles for larger screens */
+.volunteer-container {
+  display: flex;
+  height: 100vh;
+}
+
+.volunteer-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: white;
+  color: white;
+}
+
+.volunteer-header {
+  margin-top: 50px;
+}
+.volunteer-main-content {
+  margin-left: 250px;
+  padding: 20px;
+  overflow-y: auto;
+  width: calc(100% - 250px);
+  background-image: url('https://images.pexels.com/photos/2908684/pexels-photo-2908684.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.volunteer-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.volunteer-card {
+  padding: 15px;
+  background-color: #fcecae;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.volunteer-card:hover {
+  transform: scale(1.05);
+}
+
+/* Media Queries */
+
+/* For Tablets and Small Desktop (1024px and below) */
+@media (max-width: 1024px) {
+  .volunteer-sidebar {
+    width: 4rem;
+    
+  }
+
+  .volunteer-main-content {
+    margin-left: 4rem; /* Adjust main content when sidebar width reduces */
+    width: 100%;
+  }
+
+  .volunteer-cards {
+    grid-template-columns: repeat(2, 1fr); /* Display 2 columns on medium screens */
+  }
+}
+
+/* For Mobile Devices (768px and below) */
+@media (max-width: 768px) {
+  .volunteer-container {
+    flex-direction: column; /* Stack sidebar and content vertically on mobile */
+  }
+
+  .volunteer-sidebar {
+    width: 100%;
+    position: relative; /* Sidebar is now at the top */
+    height: auto;
+    margin-bottom: 20px; /* Add margin so content is spaced nicely */
+  }
+
+  .volunteer-main-content {
+    margin-left: 4rem; /* Remove left margin when sidebar is at top */
+    padding: 10px;
+    width: 100%; /* Ensure content takes full width */
+  }
+
+  .volunteer-cards {
+    grid-template-columns: 1fr; /* Stack cards vertically on mobile */
+  }
+
+  h1 {
+    font-size: 20px; /* Smaller font size on mobile */
+    margin-top: 50px;
   }
 }

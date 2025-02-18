@@ -58,7 +58,7 @@ const PostEvent = () => {
 
       {/* Main Content */}
       <div className="post-event-main">
-        <Navbar />
+        <div className='post-event-navbar'><Navbar /></div>
         <div className="post-event-form-container">
           <form onSubmit={handleSubmit} className="post-event-form">
             <h2 className="post-event-title">Post an Upcoming Event</h2>

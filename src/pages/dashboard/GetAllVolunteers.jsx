@@ -29,57 +29,26 @@ const GetAllVolunteers = () => {
   };
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
+    <div className="volunteer-container">
       {/* Sidebar */}
-      <div 
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          height: "100%",
-          width: "250px",
-         
-        
-          color: "white",
-        }}
-      >
+      <div className="volunteer-sidebar">
         <Sidebar />
       </div>
 
       {/* Main Content */}
-      <div 
-        style={{ 
-          flex: 1, 
-          marginLeft: "250px", 
-          padding: "20px", 
-          overflowY: "auto",
-          width: "calc(100% - 250px)",
-          backgroundImage: "url('https://images.pexels.com/photos/2908684/pexels-photo-2908684.jpeg')", // Background image URL
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        }}
-      >
+      <div className="volunteer-main-content">
         <Navbar />
-        <h1 style={{ textAlign: "center", fontSize: "24px", marginBottom: "20px", marginTop: "70px", }}>All Volunteers</h1>
+        <h1 className="volunteer-header">All Volunteers</h1>
         
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }}>
+        <div className="volunteer-cards">
           {volunteers.length > 0 ? (
             volunteers.map((volunteer) => (
               <div
                 key={volunteer.id}
-                style={{
-                  padding: "15px",
-                  backgroundColor: "#fcecae",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                  borderRadius: "8px",
-                  cursor: "pointer",
-                  transition: "transform 0.2s",
-                }}
+                className="volunteer-card"
                 onClick={() => handleVolunteerClick(volunteer.id)}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
               >
-                <h3 style={{ fontSize: "18px", fontWeight: "bold" }}>
+                <h3 className="volunteer-name">
                   {volunteer.firstName} {volunteer.lastName}
                 </h3>
                 <p>{volunteer.skills}</p>

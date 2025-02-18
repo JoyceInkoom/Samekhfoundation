@@ -47,10 +47,26 @@ const AllEvents = () => {
       <Navbar />
       <div style={{ display: "flex", height: "100%" }}>
         <Sidebar />
-        <div style={{ flex: 1, padding: "20px", overflowY: "auto", backgroundImage: "url('https://images.pexels.com/photos/35773/peony-flower-white-summer.jpg')", // Background image URL
-        backgroundSize: "cover",
-        backgroundPosition: "center", }}>
-          <h1 style={{ marginBottom: "20px", marginTop: "60px", color: "white" }}>
+        <div
+          style={{
+            flex: 1,
+            padding: "20px",
+            overflowY: "auto",
+            backgroundImage: "url('https://images.pexels.com/photos/35773/peony-flower-white-summer.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            marginLeft: "16rem",
+          }}
+          className="post-event-main-content"
+        >
+          <h1
+            style={{
+              marginBottom: "20px",
+              marginTop: "60px",
+              color: "white",
+            }}
+            className="event-heading"
+          >
             All Projects
           </h1>
           {loading ? (
@@ -60,9 +76,10 @@ const AllEvents = () => {
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(3, 1fr)",
-                gap: "20px",
+                gap: "10px",
                 justifyContent: "space-between",
               }}
+              className="event-grid"
             >
               {events &&
                 events.map((event) => (
@@ -122,7 +139,7 @@ const AllEvents = () => {
                     </div>
                   </Link>
                 ))}
-            </div>
+                       </div>
           )}
         </div>
       </div>
