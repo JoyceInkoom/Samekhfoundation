@@ -1,4 +1,4 @@
-import React from "react";
+
 import Navbar from "./Navbar";
 import Hero from "./Hero";
 import AboutSection from "./AboutSection";
@@ -11,9 +11,9 @@ import SuccessStories from "./SuccessStories";
 import Testimonials from "./Testimonial";
 import SponsorsPartners from "./Sponsors";
 import AboutPage from "./AboutPage";
-import Events from "./Events";
 
-import WhatCharityMeans from "./What";
+
+
 import CharitySection from "./Charity";
 import BecomeAPartner from "./Partner";
 import HowWeOperate from "./How";
@@ -33,7 +33,7 @@ const LandingPage = () => {
       {/* <WhatCharityMeans /> */}
       <AboutSection />
       <HowWeOperate />
-      <Events />
+      {/* <Events /> */}
       <ImpactGallery />
       <SuccessStories />
       <Testimonials />

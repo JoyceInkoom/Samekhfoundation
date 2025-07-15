@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+
 import CountUp from "react-countup";
 import { Carousel } from "react-responsive-carousel";
 import { useInView } from "react-intersection-observer";
@@ -24,14 +24,14 @@ const SuccessStories = () => {
         "https://images.pexels.com/photos/19986545/pexels-photo-19986545/free-photo-of-schoolgirl-writing-on-paper.jpeg",
       title: "Education for All",
       description:
-        "We helped build schools in rural areas, providing education to over 1,000 children.",
+        "We helped schools in rural areas, providing education to over 1,000 children.",
     },
     {
       image:
         "https://images.pexels.com/photos/13613219/pexels-photo-13613219.jpeg",
       title: "Clean Water Initiative",
       description:
-        "Our clean water projects have provided safe drinking water to 5,000 families.",
+        "Our clean water project have provided safe drinking water to 5,000 families.",
     },
     {
       image:
@@ -44,10 +44,10 @@ const SuccessStories = () => {
 
   // Data for impact counters
   const impactData = [
-    { number: 10000, label: "Lives Impacted" },
-    { number: 50, label: "Projects Completed" },
-    { number: 5000, label: "Volunteers Engaged" },
-    { number: 1000000, label: "Funds Raised ($)" },
+    { number: 2000, label: "Lives Impacted" },
+    { number: 10, label: "Projects Completed" },
+    { number: 500, label: "Volunteers Engaged" },
+    { number: 1000, label: "Funds Raised ($)" },
   ];
 
   return (

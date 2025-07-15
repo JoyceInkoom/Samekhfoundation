@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { getEvents } from '../services/landing';
 import Navbar2 from './Navbar2';  // Import Navbar
 import Footer from './Footer';  // Import Footer

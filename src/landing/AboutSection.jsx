@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import "../App.css";
 
 // Importing images for the About Section
-import image1 from "../assets/images/about1.jpg";
-import image2 from "../assets/images/about2.jpg";
-import image3 from "../assets/images/about3.jpg";
-import image4 from "../assets/images/about4.jpg";
+import image1 from "../assets/images/ab1.jpg";
+import image2 from "../assets/images/ab2.jpg";
+import image3 from "../assets/images/ab3.jpg";
+import image4 from "../assets/images/ab4.jpg";
 
 const AboutSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

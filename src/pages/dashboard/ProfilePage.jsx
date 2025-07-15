@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   getProfile,
   updateUser,
@@ -245,7 +245,7 @@ const ProfilePage = () => {
               </button></div>
             </form>
             <form onSubmit={handleGenerateOtp} style={{ marginTop: "10px" }}>
-              <label>To change password, generate OTP to verify it's you. Please enter email to generate OTP:</label>
+              <label>To change password, generate OTP to verify its you. Please enter email to generate OTP:</label>
               <input
                 type="email"
                 value={emailForOtp}

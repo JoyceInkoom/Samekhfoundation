@@ -1,4 +1,4 @@
-import React from "react";
+
 import { usePaystackPayment } from "react-paystack";
 
 const DonateButton = () => {
@@ -34,7 +34,7 @@ const DonateButton = () => {
   return (
     <div
       style={{
-        backgroundImage: "url('https://i.pinimg.com/736x/d6/54/c6/d654c67897f00c7494d6b9d8fb24cc21.jpg')", // Replace with your background image URL
+        backgroundImage: "url('https://i.pinimg.com/1200x/2f/96/32/2f9632555bdb0a024a5ace2216d18e06.jpg')", // Replace with your background image URL
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "100vh",

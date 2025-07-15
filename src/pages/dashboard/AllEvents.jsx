@@ -105,8 +105,7 @@ const AllEvents = () => {
                     >
                       <img
                         src={
-                          `https://savefiles.org/${event.image[0]}?shareable_link=574` ||
-                          "default-profile-image.jpg"
+                          `https://savefiles.org/${event.image[0]}?shareable_link=574`
                         }
                         alt={event.title}
                         style={{

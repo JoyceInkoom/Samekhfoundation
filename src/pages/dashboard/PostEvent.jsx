@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import { addEvent } from '../../services/events';
 import { ToastContainer, toast } from 'react-toastify';

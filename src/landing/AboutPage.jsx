@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import missionImage from "../assets/images/mission.jpg";
 
 const AboutPage = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -113,15 +114,15 @@ const AboutPage = () => {
               width: isMobile ? "100%" : "auto", // Full width on mobile
             }}
           >
-            <img
-              src="https://images.pexels.com/photos/8061642/pexels-photo-8061642.jpeg"
-              alt="Our Team"
-              style={{
-                width: "100%",
-                borderRadius: "50px",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-              }}
-            />
+           <img
+  src={missionImage}  // Using your local mission image
+  alt="Our Mission"   // Updated alt text
+  style={{
+    width: "100%",
+    borderRadius: "50px",
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+  }}
+/>
           </div>
 
           {/* Text Content */}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import {
   FaHome,
@@ -6,14 +6,14 @@ import {
   FaCalendarPlus,
   FaUser,
   FaSignOutAlt,
-  FaArrowRight,
-  FaArrowLeft,
+  // FaArrowRight,
+  // FaArrowLeft,
 } from "react-icons/fa";
 import { getProfile } from "../services/profile.js";
 
 const Sidebar = () => {
   const [userProfile, setUserProfile] = useState(null);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, ] = useState(true);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const location = useLocation();
 
@@ -57,9 +57,9 @@ const Sidebar = () => {
     window.location.assign("/");
   };
 
-  const handleToggle = () => {
-    setIsOpen(!isOpen);
-  };
+  // const handleToggle = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   return (
     <div>

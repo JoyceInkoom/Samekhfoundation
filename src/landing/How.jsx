@@ -1,5 +1,6 @@
-import React from "react";
+
 import { useInView } from "react-intersection-observer";
+import SheilaImage from "../assets/images/sheila.jpg";
 
 const HowWeOperate = () => {
   // Hero Section
@@ -80,8 +81,8 @@ const HowWeOperate = () => {
         }}
       >
         <img
-          src="https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg"
-          alt="Girls in School"
+         src={SheilaImage}
+          alt="Mrs. Sheila Hanson"
           style={styles.imageTextImage}
         />
         <div style={styles.imageTextContent}>
