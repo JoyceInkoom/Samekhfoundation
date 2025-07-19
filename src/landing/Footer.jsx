@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import "../App.css"; // Assuming you have the CSS styles in this file
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import logo from "../assets/images/logo.jpg"; // Import the logo image
@@ -46,9 +46,10 @@ const Footer = () => {
         {/* Logo and Contact Information */}
         <div className="footer-section">
           <img src={logo} alt="NGO Logo" className="footer-logo" />
-          <p>123 NGO Street, Accra, Ghana</p>
-          <p>Phone: +233 123 456 789</p>
-          <p>Email: info@yourngo.org</p>
+          <p>Street address: B787 Carmine Street, Shai Osu Doku, Ghana</p>
+          <p>GPS: G0-0080-2009</p>
+          <p>Phone: +233 246 960 656</p>
+          <p>Email: info@samekhfoundation.org</p>
         </div>
 
         {/* Navigation Links */}
