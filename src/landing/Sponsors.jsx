@@ -1,106 +1,130 @@
-import React from "react";
+
+import sponsor1Logo from "../assets/images/kid1.jpg"; // Import your sponsor logos
+
+import partner1Logo from "../assets/images/sponsor1.jpg"; // Import your partner logos
+
 
 const SponsorsPartners = () => {
-  // Data for sponsors and partners
+  // Data for sponsors and partners (only two each)
   const sponsors = [
     {
-      name: "Company A",
-      logo: "https://images.pexels.com/photos/430205/pexels-photo-430205.jpeg",
-      website: "https://example.com",
-    },
-    {
-      name: "Company B",
-      logo: "https://images.pexels.com/photos/1337380/pexels-photo-1337380.jpeg",
-      website: "https://example.com",
-    },
-    {
-      name: "Company C",
-      logo: "https://images.pexels.com/photos/1769735/pexels-photo-1769735.jpeg",
-      website: "https://example.com",
-    },
-    {
-      name: "Company D",
-      logo: "https://images.pexels.com/photos/3581855/pexels-photo-3581855.jpeg",
-      website: "https://example.com",
-    },
-    {
-      name: "Company E",
-      logo: "https://images.pexels.com/photos/4389667/pexels-photo-4389667.jpeg",
-      website: "https://example.com",
-    },
+      name: "Kidult Ventures",
+      logo: sponsor1Logo,
+      
+    }
     
   ];
 
-  return (
-    <div
-      style={{
-        padding: "50px 10px",
-        backgroundColor: "#fff",
-        textAlign: "center",
-        marginTop: "-20px"
-      }}
-    >
-      <h2
-        style={{
-          fontSize: "36px",
-          fontWeight: "bold",
-          color: "#2c3e50",
-          marginBottom: "40px",
-        }}
-      >
-        Our Sponsors and Partners
-      </h2>
+  const partners = [
+    {
+      name: "Mrs. Sheila Hanson",
+      logo: partner1Logo,
+      
+    }
+   
+  ];
 
-      {/* Sponsors and Partners Grid */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-          gap: "30px",
-          maxWidth: "1200px",
-          margin: "0 auto",
-        }}
-      >
-        {sponsors.map((sponsor, index) => (
-          <a
-            key={index}
-            href={sponsor.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              textDecoration: "none",
-              color: "inherit",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "20px",
-              backgroundColor: "#f8f9fa",
-              borderRadius: "10px",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.8)",
-              transition: "transform 0.3s ease, box-shadow 0.3s ease",
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.transform = "translateY(-5px)";
-              e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.8)";
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.8)";
-            }}
-          >
-            <img
-              src={sponsor.logo}
-              alt={sponsor.name}
-              style={{
-                maxWidth: "100%",
-                height: "auto",
-              }}
-            />
-          </a>
-        ))}
+  return (
+    <div style={styles.container}>
+      <h2 style={styles.title}>Our Sponsors and Partners</h2>
+
+      {/* Sponsors Section */}
+      <div style={styles.section}>
+        <h3 style={styles.subtitle}>Sponsors</h3>
+        <div style={styles.grid}>
+          {sponsors.map((sponsor, index) => (
+            <SponsorCard key={`sponsor-${index}`} data={sponsor} />
+          ))}
+        </div>
+      </div>
+
+      {/* Partners Section */}
+      <div style={styles.section}>
+        <h3 style={styles.subtitle}>Partners</h3>
+        <div style={styles.grid}>
+          {partners.map((partner, index) => (
+            <SponsorCard key={`partner-${index}`} data={partner} />
+          ))}
+        </div>
       </div>
     </div>
   );
+};
+
+// Reusable card component
+const SponsorCard = ({ data }) => (
+  <a
+    href={data.website}
+    target="_blank"
+    rel="noopener noreferrer"
+    style={styles.card}
+  >
+    <img
+      src={data.logo}
+      alt={data.name}
+      style={styles.logo}
+    />
+    <p style={styles.name}>{data.name}</p>
+  </a>
+);
+
+// Styles
+const styles = {
+  container: {
+    padding: "60px 20px",
+    backgroundColor: "#fff",
+    textAlign: "center",
+  },
+  title: {
+    fontSize: "36px",
+    fontWeight: "bold",
+    color: "#2c3e50",
+    marginBottom: "50px",
+  },
+  subtitle: {
+    fontSize: "24px",
+    color: "#3498db",
+    marginBottom: "30px",
+  },
+  section: {
+    marginBottom: "60px",
+  },
+  grid: {
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    gap: "40px",
+    maxWidth: "1000px",
+    margin: "0 auto",
+  },
+  card: {
+    textDecoration: "none",
+    color: "#333",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "250px",
+    padding: "25px",
+    backgroundColor: "#f8f9fa",
+    borderRadius: "12px",
+    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
+    transition: "all 0.3s ease",
+    ":hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 8px 20px rgba(0, 0, 0, 0.15)",
+    }
+  },
+  logo: {
+    width: "150px",
+    height: "150px",
+    objectFit: "contain",
+    marginBottom: "20px",
+  },
+  name: {
+    fontSize: "18px",
+    fontWeight: "600",
+    margin: "0",
+  }
 };
 
 export default SponsorsPartners;

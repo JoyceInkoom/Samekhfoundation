@@ -1,36 +1,18 @@
-import React from 'react';
+
 import { useInView } from 'react-intersection-observer';
+import communityHelping from '../assets/images/partner1.jpg';
+import girlsInSchool from '../assets/images/partner2.jpg';
+import teacherStudents from '../assets/images/partner3.jpg';
+import studentsLearning from '../assets/images/partner4.jpg';
+import heroBackground from '../assets/images/partner0.jpg';
 
 const BecomeAPartner = () => {
-  // Hero Section
-  const [heroRef, heroInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
-
-  // Introduction Section
-  const [introRef, introInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
-
-  // Image Gallery Section
-  const [galleryRef, galleryInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
-
-  // Benefits Section
-  const [benefitsRef, benefitsInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
-
-  // Call to Action Section
-  const [ctaRef, ctaInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.5,
-  });
+  // Animation hooks
+  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const [introRef, introInView] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const [galleryRef, galleryInView] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const [benefitsRef, benefitsInView] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const [ctaRef, ctaInView] = useInView({ triggerOnce: true, threshold: 0.5 });
 
   return (
     <div style={styles.container}>
@@ -39,6 +21,7 @@ const BecomeAPartner = () => {
         ref={heroRef}
         style={{
           ...styles.heroSection,
+          backgroundImage: `url(${heroBackground})`,
           opacity: heroInView ? 1 : 0,
           transform: heroInView ? 'translateY(0)' : 'translateY(50px)',
           transition: 'opacity 1s ease, transform 1s ease',
@@ -79,22 +62,22 @@ const BecomeAPartner = () => {
         }}
       >
         <img
-          src="https://images.pexels.com/photos/3184301/pexels-photo-3184301.jpeg"
+          src={communityHelping}
           alt="Community Helping Hands"
           style={styles.galleryImage}
         />
         <img
-          src="https://images.pexels.com/photos/3184294/pexels-photo-3184294.jpeg"
+          src={girlsInSchool}
           alt="Girls in School"
           style={styles.galleryImage}
         />
         <img
-          src="https://images.pexels.com/photos/3810788/pexels-photo-3810788.jpeg"
+          src={teacherStudents}
           alt="Teacher and Students"
           style={styles.galleryImage}
         />
         <img
-          src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg"
+          src={studentsLearning}
           alt="Students Learning"
           style={styles.galleryImage}
         />
@@ -156,29 +139,10 @@ const BecomeAPartner = () => {
           </div>
         </div>
       </div>
-
-      {/* Call to Action Section */}
-      {/* <div
-        ref={ctaRef}
-        style={{
-          ...styles.ctaSection,
-          opacity: ctaInView ? 1 : 0,
-          transform: ctaInView ? 'translateY(0)' : 'translateY(50px)',
-          transition: 'opacity 1s ease, transform 1s ease',
-        }}
-      >
-        <h2 style={styles.ctaTitle}>Ready to Make a Difference?</h2>
-        <p style={styles.ctaText}>
-          Contact us today to learn more about partnership opportunities and how you can contribute
-          to our mission.
-        </p>
-        
-      </div> */}
     </div>
   );
 };
 
-// Inline Styles (same as before)
 const styles = {
   container: {
     fontFamily: 'Arial, sans-serif',
@@ -186,26 +150,36 @@ const styles = {
     lineHeight: '1.6',
   },
   heroSection: {
-    backgroundImage:
-      'url("https://images.pexels.com/photos/764681/pexels-photo-764681.jpeg")',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     padding: '100px 20px',
     textAlign: 'center',
     color: 'white',
+    position: 'relative',
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(0,0,0,0.5)',
+    }
   },
   heroTitle: {
     fontSize: '3rem',
     fontWeight: 'bold',
     marginBottom: '20px',
+    position: 'relative',
   },
   heroSubtitle: {
     fontSize: '1.5rem',
     maxWidth: '800px',
     margin: '0 auto',
+    position: 'relative',
   },
   section: {
-    padding: '20px 20px',
+    padding: '80px 20px',
     maxWidth: '1200px',
     margin: '0 auto',
     textAlign: 'center',
@@ -214,76 +188,61 @@ const styles = {
     fontSize: '2.5rem',
     fontWeight: 'bold',
     marginBottom: '20px',
+    color: '#2c3e50',
   },
   sectionText: {
     fontSize: '1.2rem',
     maxWidth: '800px',
     margin: '0 auto',
+    color: '#555',
   },
   gallery: {
     display: 'flex',
     flexWrap: 'wrap',
     gap: '20px',
     justifyContent: 'center',
-    padding: '20px',
+    padding: '40px 20px',
+    backgroundColor: '#f9f9f9',
   },
   galleryImage: {
-    width: '300px',
+    width: '100%',
+    maxWidth: '300px',
     height: '200px',
     objectFit: 'cover',
     borderRadius: '10px',
-    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.8)',
+    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+    transition: 'transform 0.3s ease',
+    ':hover': {
+      transform: 'scale(1.03)',
+    }
   },
   benefitsGrid: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    gap: '20px',
-    marginTop: '20px',
-    marginBottom: '40px',
+    gap: '30px',
+    marginTop: '40px',
   },
   benefitCard: {
     backgroundColor: 'white',
-    padding: '20px',
+    padding: '30px',
     borderRadius: '10px',
-    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.8)',
-    textAlign: 'left',
+    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+    textAlign: 'center',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    ':hover': {
+      transform: 'translateY(-5px)',
+      boxShadow: '0 6px 15px rgba(0, 0, 0, 0.15)',
+    }
   },
   benefitTitle: {
     fontSize: '1.5rem',
     fontWeight: 'bold',
-    marginBottom: '10px',
+    marginBottom: '15px',
+    color: '#2c3e50',
   },
   benefitText: {
     fontSize: '1rem',
     color: '#555',
-  },
-  ctaSection: {
-    backgroundColor: 'black',
-    padding: '60px 20px',
-    textAlign: 'center',
-    color: '#fff',
-    height: '150px',
-  },
-  ctaTitle: {
-    fontSize: '2.5rem',
-    fontWeight: 'bold',
-    marginBottom: '20px',
-  },
-  ctaText: {
-    fontSize: '1.2rem',
-    maxWidth: '800px',
-    margin: '0 auto 30px',
-  },
-  ctaButton: {
-    backgroundColor: '#fff',
-    color: 'black',
-    padding: '15px 30px',
-    border: 'none',
-    borderRadius: '50px',
-    fontSize: '1rem',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
   },
 };
 

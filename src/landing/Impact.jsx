@@ -8,6 +8,14 @@ import image5 from "../assets/images/impact5.jpg";
 import image6 from "../assets/images/impact6.jpg";
 import image7 from "../assets/images/impact7.jpg";
 import image8 from "../assets/images/impact8.jpg";
+import image9 from "../assets/images/don1.jpg";
+import image10 from "../assets/images/don2.jpg";
+import image11 from "../assets/images/don3.jpg";
+import image12 from "../assets/images/don4.jpg";
+import image13 from "../assets/images/don5.jpg";
+import image14 from "../assets/images/don6.jpg";
+import image15 from "../assets/images/don7.jpg";
+import image16 from "../assets/images/impact8.jpg";
 
 const ImpactGallery = () => {
   const { ref: headingRef, inView: headingInView } = useInView({
@@ -30,6 +38,14 @@ const ImpactGallery = () => {
     { src: image6, caption: "Students in our literacy program" },
     { src: image7, caption: "Teacher training session" },
     { src: image8, caption: "Students in our literacy program" },
+    { src: image9, caption: "Students in our literacy program" },
+    { src: image10, caption: "Children receiving school supplies" },
+    { src: image11, caption: "Mobile education unit in action" },
+    { src: image12, caption: "Community health workshop" },
+    { src: image13, caption: "Students in our literacy program" },
+    { src: image14, caption: "Students in our literacy program" },
+    { src: image15, caption: "Teacher training session" },
+    { src: image16, caption: "Students in our literacy program" },
   ];
 
   return (

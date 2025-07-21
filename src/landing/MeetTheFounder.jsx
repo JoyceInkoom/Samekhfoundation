@@ -1,8 +1,8 @@
 
 import { useInView } from "react-intersection-observer";
 import useMediaQuery from '@mui/material/useMediaQuery';
-import founder1Image from "../assets/images/founder1.jpg";
-import founder2Image from "../assets/images/founder2.jpg";
+import founder1Image from "../assets/images/she1.jpg";
+import founder2Image from "../assets/images/he2.jpg";
 
 const MeetTheFounders = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -22,7 +22,7 @@ const MeetTheFounders = () => {
     },
     {
       id: 2,
-      name: "Pastor Hanson",
+      name: "Reverend Richard Hanson",
       role: "Co-Founder & CTO",
       image: founder2Image,
       description: "Visionary leader with 15+ years in social entrepreneurship. Expertise in strategic planning and community development.",

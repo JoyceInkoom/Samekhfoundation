@@ -22,6 +22,7 @@ import Volunteer from "./landing/Volunteer";
 import Contact from "./landing/Contact";
 import Projects from "./landing/Projects";
 import About from "./landing/About";
+import ImpactGallery from "./landing/Impact";
 
 function App() {
   const router = createBrowserRouter([
@@ -44,6 +45,7 @@ function App() {
     { path: "/contact", element: <Contact /> },
     { path: "/projects", element: <Projects /> },
     { path: "/about", element: <About /> },
+    { path: "/gallery", element: <ImpactGallery /> },
   ]);
 
   return (

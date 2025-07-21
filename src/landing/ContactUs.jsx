@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import background from "../assets/images/contact.jpg";
 import { postContact } from "../services/contact";
@@ -229,7 +229,8 @@ const ContactUs = () => {
                   <h3 style={{ marginBottom: "5px", color: "#fff", fontSize: "1.2rem" }}>
                     Our Address
                   </h3>
-                  <p style={{ color: "#fff", fontSize: "1rem" }}>123 NGO Lane, Community 5, Ghana</p>
+                  <p style={{ color: "#fff", fontSize: "1rem" }}>Street Address: B787 Carmine Street. Shai Osu Doku, Ghana</p>
+                  <p style={{ color: "#fff", fontSize: "1rem" }}>GPS: G0-0080-2009</p>
                 </div>
               </div>
               <div style={{ display: "flex", gap: "10px", marginBottom: "10px" }}>
@@ -238,7 +239,7 @@ const ContactUs = () => {
                   <h3 style={{ marginBottom: "5px", color: "#fff", fontSize: "1.2rem" }}>
                     Call Us
                   </h3>
-                  <p style={{ color: "#fff", fontSize: "1rem" }}>+233 24 123 4567</p>
+                  <p style={{ color: "#fff", fontSize: "1rem" }}>+233 246 960 656 / +233 508 647 801</p>
                 </div>
               </div>
               <div style={{ display: "flex", gap: "10px" }}>
@@ -247,14 +248,14 @@ const ContactUs = () => {
                   <h3 style={{ marginBottom: "5px", color: "#fff", fontSize: "1.2rem" }}>
                     Email
                   </h3>
-                  <p style={{ color: "#fff", fontSize: "1rem" }}>info@yourngo.org</p>
+                  <p style={{ color: "#fff", fontSize: "1rem" }}>info.samekhfoundation@gmail.com</p>
                 </div>
               </div>
             </div>
 
             {/* Map Section */}
             <div>
-              <iframe
+              {/* <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509517!2d-122.41941608468164!3d37.77492977975947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808c7f4aafed%3A0x16b9d1bbff76e45a!2s123%20Market%20St%2C%20San%20Francisco%2C%20CA%2094105%2C%20USA!5e0!3m2!1sen!2sgh!4v1675944451667!5m2!1sen!2sgh"
                 width="100%"
                 height="200"
@@ -265,7 +266,14 @@ const ContactUs = () => {
                 allowFullScreen=""
                 loading="lazy"
                 title="Our Location"
-              ></iframe>
+              ></iframe> */}
+              <iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d248813.1072990851!2d-0.1964972292001269!3d5.799945120296091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d5.677325!2d-0.1775958!4m5!1s0x10208f9f5dc24131%3A0x841e3e04c5b45b2c!2sShai%20Osudoku!3m2!1d5.9409597!2d0.11206959999999999!5e0!3m2!1sen!2sgh!4v1753109806802!5m2!1sen!2sgh" width="100%"
+                height="200"
+                style={{
+                  border: "0",
+                  borderRadius: "10px",
+                }}
+                allowFullScreen="" loading="lazy" title="Our Location" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         )}
