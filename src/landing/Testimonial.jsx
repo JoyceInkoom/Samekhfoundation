@@ -8,7 +8,7 @@ const Testimonials = () => {
   const [testimonials] = useState([
     {
       id: 1,
-      name: "Sarah Thompson",
+      name: "Gifty Kpabitey",
       role: "Parent & School Volunteer",
       image: testimonial1,
       testimonial:
@@ -16,7 +16,7 @@ const Testimonials = () => {
     },
     {
       id: 2,
-      name: "Mrs. Michael Chen",
+      name: "Yacouba Otoo",
       role: "Pediatrician",
       image: testimonial2,
       testimonial:
@@ -24,7 +24,7 @@ const Testimonials = () => {
     },
     {
       id: 3,
-      name: "Rebecca Okafor",
+      name: "Josephine Ohene Okanta",
       role: "Elementary School Principal",
       image: testimonial3,
       testimonial:
@@ -32,7 +32,7 @@ const Testimonials = () => {
     },
     {
       id: 4,
-      name: "David Mwangi",
+      name: "Pascal Agbeko",
       role: "Community Leader",
       image: testimonial4,
       testimonial:

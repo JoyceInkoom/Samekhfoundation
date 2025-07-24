@@ -44,10 +44,10 @@ const SuccessStories = () => {
 
   // Data for impact counters
   const impactData = [
-    { number: 2000, label: "Lives Impacted" },
-    { number: 10, label: "Projects Completed" },
-    { number: 500, label: "Volunteers Engaged" },
-    { number: 1000, label: "Funds Raised ($)" },
+    { number: 5000, label: "Lives Impacted" },
+    { number: 50, label: "Projects Completed" },
+    { number: 1000, label: "Volunteers Engaged" },
+    { number: 10000, label: "Funds Raised ($)" },
   ];
 
   return (

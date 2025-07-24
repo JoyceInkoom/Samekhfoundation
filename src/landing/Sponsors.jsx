@@ -1,7 +1,7 @@
 
-import sponsor1Logo from "../assets/images/kid1.jpg"; // Import your sponsor logos
+import sponsor1Logo from "../assets/images/kidult.jpg"; // Import your sponsor logos
 
-import partner1Logo from "../assets/images/sponsor1.jpg"; // Import your partner logos
+import partner1Logo from "../assets/images/spo.jpg"; // Import your partner logos
 
 
 const SponsorsPartners = () => {
@@ -17,7 +17,7 @@ const SponsorsPartners = () => {
 
   const partners = [
     {
-      name: "Mrs. Sheila Hanson",
+      name: "Mrs. Evelyn Adomako Amponsah",
       logo: partner1Logo,
       
     }

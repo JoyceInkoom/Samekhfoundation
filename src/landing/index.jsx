@@ -19,6 +19,7 @@ import BecomeAPartner from "./Partner";
 import HowWeOperate from "./How";
 import DidYouKnow from "./DidYouKnow";
 import ImpactGallery from "./Impact";
+import ProjectsShowcase from "./ProjectsShowcase";
 
 const LandingPage = () => {
   return (
@@ -35,6 +36,7 @@ const LandingPage = () => {
       <HowWeOperate />
       {/* <Events /> */}
       <ImpactGallery />
+      <ProjectsShowcase />
       <SuccessStories />
       <Testimonials />
       

@@ -22,7 +22,7 @@ const MeetTheFounders = () => {
     },
     {
       id: 2,
-      name: "Reverend Richard Hanson",
+      name: "Mr. Richard Hanson",
       role: "Co-Founder & CTO",
       image: founder2Image,
       description: "Visionary leader with 15+ years in social entrepreneurship. Expertise in strategic planning and community development.",

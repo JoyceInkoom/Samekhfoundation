@@ -4,16 +4,13 @@ import image1 from "../assets/images/impact1.jpg";
 import image2 from "../assets/images/impact2.jpg";
 import image3 from "../assets/images/impact3.jpg";
 import image4 from "../assets/images/impact4.jpg";
-import image5 from "../assets/images/impact5.jpg";
-import image6 from "../assets/images/impact6.jpg";
-import image7 from "../assets/images/impact7.jpg";
-import image8 from "../assets/images/impact8.jpg";
+
 import image9 from "../assets/images/don1.jpg";
 import image10 from "../assets/images/don2.jpg";
-import image11 from "../assets/images/don3.jpg";
+import image11 from "../assets/images/3.jpg";
 import image12 from "../assets/images/don4.jpg";
 import image13 from "../assets/images/don5.jpg";
-import image14 from "../assets/images/don6.jpg";
+import image14 from "../assets/images/6.jpg";
 import image15 from "../assets/images/don7.jpg";
 import image16 from "../assets/images/impact8.jpg";
 
@@ -31,20 +28,16 @@ const ImpactGallery = () => {
   // Using local images from assets
   const images = [
     { src: image1, caption: "Students in our literacy program" },
-    { src: image2, caption: "Children receiving school supplies" },
+    { src: image2, caption: "Children reading exercise" },
     { src: image3, caption: "Mobile education unit in action" },
-    { src: image4, caption: "Community health workshop" },
-    { src: image5, caption: "Students in our literacy program" },
-    { src: image6, caption: "Students in our literacy program" },
-    { src: image7, caption: "Teacher training session" },
-    { src: image8, caption: "Students in our literacy program" },
-    { src: image9, caption: "Students in our literacy program" },
-    { src: image10, caption: "Children receiving school supplies" },
-    { src: image11, caption: "Mobile education unit in action" },
+    { src: image4, caption: "School Literacy Program" },
+    { src: image9, caption: "Orphanage Donation" },
+    { src: image10, caption: "Breast Cancer Screening Project" },
+    { src: image11, caption: "Farmer Engagement and Education" },
     { src: image12, caption: "Community health workshop" },
-    { src: image13, caption: "Students in our literacy program" },
-    { src: image14, caption: "Students in our literacy program" },
-    { src: image15, caption: "Teacher training session" },
+    { src: image13, caption: "Community Engagement" },
+    { src: image14, caption: " School Feeding Project" },
+    { src: image15, caption: "Orphanage Donation" },
     { src: image16, caption: "Students in our literacy program" },
   ];
 
