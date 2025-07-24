@@ -68,6 +68,16 @@ const ProjectsShowcase = () => {
   // Animation hooks
   const [titleRef, titleInView] = useInView({ triggerOnce: true, threshold: 0.3 });
   const [containerRef, containerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Project data
   const projects = [
@@ -111,25 +121,23 @@ const ProjectsShowcase = () => {
 
   return (
     <div style={styles.container} ref={containerRef}>
-      {/* Title Section */}
       <div
         ref={titleRef}
         style={{
           ...styles.titleSection,
           opacity: titleInView ? 1 : 0,
-          transform: titleInView ? 'translateY(0)' : 'translateY(30px)',
-          transition: 'opacity 0.8s ease, transform 0.8s ease'
+          transform: titleInView ? 'translateY(0)' : 'translateY(20px)',
+          transition: 'opacity 0.6s ease, transform 0.6s ease'
         }}
       >
         <h1 style={styles.title}>Our Impactful Projects</h1>
         <p style={styles.subtitle}>See how we're transforming communities through sustainable initiatives</p>
       </div>
 
-      {/* Projects Grid */}
       <div style={{
         ...styles.projectsGrid,
         opacity: containerInView ? 1 : 0,
-        transition: 'opacity 0.8s ease 0.3s'
+        transition: 'opacity 0.6s ease 0.2s'
       }}>
         {projects.map((project, index) => (
           <ProjectCard 
@@ -137,6 +145,7 @@ const ProjectsShowcase = () => {
             project={project} 
             index={index}
             isVisible={containerInView}
+            isMobile={isMobile}
           />
         ))}
       </div>
@@ -145,21 +154,40 @@ const ProjectsShowcase = () => {
 };
 
 // Project Card Component
-const ProjectCard = ({ project, index, isVisible }) => {
+const ProjectCard = ({ project, index, isVisible, isMobile }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  // Auto-rotate images when hovered
+  // Handle touch events for mobile swipe
+  const handleTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 50) {
+      nextImage();
+    }
+    if (touchStart - touchEnd < -50) {
+      prevImage();
+    }
+  };
+
   useEffect(() => {
     let interval;
-    if (isHovered) {
+    if (isHovered && !isMobile) {
       interval = setInterval(() => {
         setCurrentImageIndex(prev => (prev + 1) % project.images.length);
       }, 3000);
     }
     return () => clearInterval(interval);
-  }, [isHovered, project.images.length]);
+  }, [isHovered, isMobile, project.images.length]);
 
   const nextImage = () => {
     setCurrentImageIndex(prev => (prev + 1) % project.images.length);
@@ -175,51 +203,60 @@ const ProjectCard = ({ project, index, isVisible }) => {
       style={{
         ...styles.projectCard,
         opacity: inView ? 1 : 0,
-        transform: inView ? 'translateY(0)' : 'translateY(30px)',
-        transition: `opacity 0.8s ease ${index * 0.1}s, transform 0.8s ease ${index * 0.1}s`,
+        transform: inView ? 'translateY(0)' : 'translateY(20px)',
+        transition: `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`,
       }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => !isMobile && setIsHovered(true)}
+      onMouseLeave={() => !isMobile && setIsHovered(false)}
     >
-      {/* Image Carousel */}
-      <div style={styles.carouselContainer}>
+      <div 
+        style={styles.carouselContainer}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div style={styles.carouselTrack}>
           <img
             src={project.images[currentImageIndex]}
             alt={`${project.title} - Image ${currentImageIndex + 1}`}
             style={styles.carouselImage}
+            loading="lazy"
           />
         </div>
         
-        {/* Navigation Arrows */}
-        <button 
-          style={styles.carouselArrowLeft} 
-          onClick={(e) => {
-            e.stopPropagation();
-            prevImage();
-          }}
-          aria-label="Previous image"
-        >
-          <FiChevronLeft size={24} />
-        </button>
-        <button 
-          style={styles.carouselArrowRight} 
-          onClick={(e) => {
-            e.stopPropagation();
-            nextImage();
-          }}
-          aria-label="Next image"
-        >
-          <FiChevronRight size={24} />
-        </button>
+        {!isMobile && (
+          <>
+            <button 
+              style={styles.carouselArrowLeft} 
+              onClick={(e) => {
+                e.stopPropagation();
+                prevImage();
+              }}
+              aria-label="Previous image"
+            >
+              <FiChevronLeft size={24} />
+            </button>
+            <button 
+              style={styles.carouselArrowRight} 
+              onClick={(e) => {
+                e.stopPropagation();
+                nextImage();
+              }}
+              aria-label="Next image"
+            >
+              <FiChevronRight size={24} />
+            </button>
+          </>
+        )}
         
-        {/* Dots Indicator */}
         <div style={styles.dotsContainer}>
           {project.images.map((_, idx) => (
             <button
               key={idx}
               style={{
                 ...styles.dot,
+                width: isMobile ? '8px' : '10px',
+                height: isMobile ? '8px' : '10px',
                 backgroundColor: currentImageIndex === idx ? '#4a6fa5' : '#ddd'
               }}
               onClick={(e) => {
@@ -232,7 +269,6 @@ const ProjectCard = ({ project, index, isVisible }) => {
         </div>
       </div>
 
-      {/* Project Info */}
       <div style={styles.projectInfo}>
         <h3 style={styles.projectTitle}>{project.title}</h3>
         <p style={styles.projectDescription}>{project.description}</p>
